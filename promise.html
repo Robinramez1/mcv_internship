@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise Box 🎁</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background: #87cefa;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #357abd;
+    }
+    #message {
+      margin-top: 30px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      font-size: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="surpriseBtn">Open Surprise Box 🎁</button>
+  <div id="message"></div>
+
+  <script>
+    const button = document.getElementById("surpriseBtn");
+    const messageDiv = document.getElementById("message");
+
+    const quotes = [
+      "🎉 Today is your lucky coding day!",
+      "💡 Keep calm and code on.",
+      "🚀 One more bug squashed!",
+      "🔥 You are a JavaScript ninja!",
+      "✨ Something magical is coming...",
+      "🎯 Aim high, debug smart!",
+      "😎 Console.log your way to glory!"
+    ];
+
+    function getRandomQuote() {
+      const index = Math.floor(Math.random() * quotes.length);
+      return quotes[index];
+    }
+
+    function simulateDelayWithQuote() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const quote = getRandomQuote();
+          resolve(quote);
+        }, 2000);
+      });
+    }
+
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+
+      // Show loading message first
+      messageDiv.textContent = "⏳ estana shwaya.... 🙏";
+      messageDiv.style.display = "block";
+
+      try {
+        const quote = await simulateDelayWithQuote();
+        messageDiv.textContent = quote;
+      } catch (error) {
+        messageDiv.textContent = "⚠️ Oops! Something went wrong.";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
