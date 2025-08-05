@@ -1,0 +1,88 @@
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            body {
+                background: #f5f6fa;
+            }
+            .card {
+                border-radius: 12px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+                transition: box-shadow 0.2s;
+            }
+            .card:hover {
+                box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" id="card-container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <img src="https://via.placeholder.com/300x180" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 1</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <img src="https://via.placeholder.com/300x180" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 2</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <img src="https://via.placeholder.com/300x180" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title 3</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <script>
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => {
+          const cardContainer = document.getElementById('card-container');
+          json.forEach(element => {
+            cardContainer.innerHTML+=`
+              <div class="col-md-4 d-flex align-items-stretch">
+                  <div class="card w-100">
+                      <img src="https://via.placeholder.com/300x180" class="card-img-top" alt="...">
+                      <div class="card-body">
+                          <h5 class="card-title">${element.title}</h5>
+                          <p class="card-text">${element.completed ? 'Completed' : 'Not Completed'}</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                  </div>
+              </div>
+            `;
+          });
+      });
+
+
+
+      
+z
+
+
+
+        </script>
+    </body>
+</html>
